@@ -62,7 +62,7 @@ var auditTask = function(taskEL) {
 
   console.log(time);
   
-  // remove any old classes form element
+  // remove any old classes from element
   $(taskEL).removeClass('list-group-item-warning list-group-item-danger');
 
   // apply new class if task is near/over due date
