@@ -47,21 +47,29 @@ var saveTasks = function() {
 };
 
 // function to highlight tasks coming soon or that are overdue
-var auditTask = function(tasks) {
+var auditTask = function(taskEL) {
   // get date from task element
-  var date = $(tasks).find('span').text().trim();
+  var date = $(taskEL)
+  .find('span')
+  .text()
+  .trim();
+
+  console.log(date);
   
   // convert to moment object at 5:00pm
-  var time = moment(date, 'L').set('hour', 17);
+  var time = moment(date, 'L')
+  .set('hour', 17);
+
+  console.log(time);
   
   // remove any old classes form element
-  $(tasks).removeClass('list-group-item-warning list-group-item-danger');
+  $(taskEL).removeClass('list-group-item-warning list-group-item-danger');
 
   // apply new class if task is near/over due date
   if (moment().isAfter(time)) {
-    $(tasks).addClass('list-group-item-danger');
+    $(taskEL).addClass('list-group-item-danger');
   } else if (Math.abs(moment().diff(time, 'days')) <= 2) {
-    $(tasks).addClass('list-group-item-warning');
+    $(taskEL).addClass('list-group-item-warning');
   }
 };
 
