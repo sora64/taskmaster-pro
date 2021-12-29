@@ -213,7 +213,7 @@ $('.list-group').on('change', 'input[type="text"]', function() {
   $(this).replaceWith(taskSpan);
 
   // pass task's <li> element into auditTask() to check new due date
-  auditTask($(taskSpan).closest('list-group-item'));
+  auditTask($(taskSpan).closest('.list-group-item'));
 });
 
 // make ul elements sortable using JQuery UI
